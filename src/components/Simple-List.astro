@@ -1,0 +1,17 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    items.map((item) => (
+      <li class="list-row hover:bg-base-300">
+        <div class="text-xs uppercase font-semibold opacity-60">{item}</div>
+      </li>
+    ))
+  }
+</ul>

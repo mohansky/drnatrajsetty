@@ -1,0 +1,26 @@
+---
+import type { Education } from "@/types";
+
+interface Props {
+  educationHistory: Education[];
+}
+
+const { educationHistory } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    educationHistory.map(({ degree, institution, university, duration }) => (
+      <li class="flex flex-col md:flex-row list-row justify-between hover:bg-base-300">
+        <div class="min-w-44 text-md uppercase font-semibold opacity-60">
+          {degree}
+        </div>
+        <div class="text-center">
+          <div>{university}</div>
+          <div class="text-xs font-thin opacity-60">{institution}</div>
+        </div>
+        <div>{duration}</div>
+      </li>
+    ))
+  }
+</ul>

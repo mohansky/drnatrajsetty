@@ -1,0 +1,137 @@
+site:
+  name: Dr. Natraj Setty
+  title: Dr. Natraj Setty | Cardiologist
+  logo: ./logo.svg
+  image: ./dr-natraj-setty1x1.jpg
+  description: Board-certified cardiologist with extensive experience in treating complex cardiac conditions. Committed to providing personalized care and improving patient outcomes through innovative treatments.
+  aboutList: 
+    - Board Certified in Cardiovascular Disease
+    - Fellow of the American College of Cardiology
+    - Advanced Training in Interventional Cardiology
+  basepath: https://drnatrajasetty.com/
+  keywords:
+    - Dr. H.S NatarajSetty
+    - Cardiologist
+    - Heart Clinic
+  author:
+    name: Dr. H.S Natraj Setty
+    email: drnatrajasetty@gmail.com
+    url: https://drnatrajasetty.com/
+  heroslider:
+    - image: ./dr-natraj-setty.jpg
+      bgImage: ./clinic.jpg
+      title: Dr. Natraj Setty
+      subtitle: Renowned Cardiologist & Associate Professor of Cardiology, <br /> at Sri Jayadeva Institute of Cardiovascular Sciences & Research, Bangalore.
+      btnText: Book Appointment
+      link: /#contact
+  menulinks:
+    - id: 1
+      text: Home
+      link: /
+    - id: 2
+      text: About
+      link: /about
+    - id: 3
+      text: Services
+      link: /#services
+    - id: 3
+      text: Experties
+      link: /experties
+    - id: 4
+      text: Blog
+      link: /blog
+    - id: 5
+      text: Contact
+      link: /#contact
+  footerAbout: Sapphire Heart Clinic
+  footerDescription: Our Clinic has grown to provide the latest world class facilities for clinic and advanced restorative heart treatments.
+  footerMenuTitle: Useful Links
+  contactTitle: Get in touch
+  socialTitle: Follow Us
+  copyright: Copyright © - Sapphire Clinics
+  serviceTitle: Our Services
+  serviceSubtitle: Comprehensive cardiac care services using latest medical technologies.
+  servicesList:
+    - name: Cardiac Consultation
+      description: Comprehesive heart health evaluation and personlised treatment plans.
+      icon: healthicons:heart-cardiogram
+    - name: Diagnostic Testing
+      description: Advanced cardiac imaging and diagnostic procedures.
+      icon: healthicons:stethoscope
+    - name: Preventive Care
+      description: Risk assessment and preventive strategies for heart disease.
+      icon: healthicons:hospital-24px
+  socials:
+    - name: Facebook
+      icon: line-md:facebook
+      link: https://www.facebook.com/drnatrajasetty
+    - name: Instagram
+      icon: line-md:instagram
+      link: https://www.instagram.com/drnatrajasetty
+    - name: YouTube
+      icon: line-md:youtube
+      link: https://www.youtube.com/@drnatrajasetty
+  contact:
+    - href: mailto:drnatrajsetty75@gmail.com
+      icon: line-md:email
+      text: Email
+      name: ["drnatrajsetty75@gmail.com"]
+    - href: tel:+919741418281
+      icon: line-md:phone-call-loop
+      text: Phone
+      name: ["+91 974 141 8281"]
+    - href: tel:+918197206374
+      icon: line-md:phone-call-loop
+      text: Phone
+      name: ["+91 819 720 6374"]
+    - href: https://maps.app.goo.gl/umXVBgVSZVNXRCvF8
+      icon: line-md:map-marker-alt-loop
+      text: Location
+      name:
+        [ 
+          "#718, 2nd floor, 24th main road,",
+          "JP Nagar 6th Phase,",
+          "Bangalore - 560 078",
+        ]
+  gallery:
+    - title: Dr. Natraj Setty
+      image: ./american-college-2.jpg
+    - title: Dr. Natraj Setty
+      image: ./american-college.jpg
+    - title: Dr. Natraj Setty
+      image: ./dr-natraj-setty-FRCP.jpg
+    - title: Dr. Natraj Setty
+      image: ./group.jpg
+    - title: Dr. Natraj Setty
+      image: ./polaris.jpg
+  stats:
+    - title: Years experience
+      initial: 0
+      target: 20
+    - title: Patients Treated
+      target: 5000
+      initial: 0
+    - title: Research and Publications
+      target: 125
+      initial: 0  
+  testimonialsTitle: Patient Testimonials
+  testimonials:
+    - name: Nagaraju Darapu
+      icon: healthicons:man-outline
+      treatment: Hypertension Treatment
+      comments: I recommend the doctor To be frank Doctor is good in all aspects. The way he used to treat me is above my expectations. Clinic environment is quite good and staff are really helpful in all aspects.
+    - name: Shwetha
+      icon: healthicons:woman-outline
+      treatment: Coronary Angiogram
+      comments: Doctor was very friendly and caring. I took my dad for consultation after coronary angiogram which was suggested by the same doctor. He ensured all the procedures are done properly and explained in detail about the whole process very patiently. Thank you doctor.
+    - name: Thomas
+      icon: healthicons:man-outline
+      treatment: Cardiac checkup - General
+      comments: Very professional approach by the doctor. Went for a check up since I had chest pain. He did an ECG, ECHO and TMT and reassured me that my heart is fine. I am very happy with the doctor. His support staff especially Nanditha are also excellent. Also need to add that his fees and other charges are reasonable. Highly recommended.
+  timmingsTitle: Clinic Timings
+  timmings:
+    - title: Mon - Sat
+      details:  06:00 PM - 08:30 PM
+    - title: Sun
+      details:  12:00 PM - 03:00 PM
+      

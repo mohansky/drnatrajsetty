@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import { cn } from "@/lib/utils";
+import type { AstroBuiltinAttributes } from "astro";
+
+type ImageProps = Parameters<typeof Image>[0];
+type Props = ImageProps & AstroBuiltinAttributes;
+
+const { src, alt, class: className, ...attrs } = Astro.props;
+const classes = cn("w-full h-full object-cover", className);
+---
+
+<Image
+  src={src || " "}
+  alt={alt || " "}
+  title={alt || " "}
+  width={1920}
+  height={1080}
+  class={classes}
+  {...attrs}
+/>

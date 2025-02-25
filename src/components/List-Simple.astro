@@ -1,0 +1,19 @@
+---
+import Heading from './Heading.astro';
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    items.map((item) => (
+      <li class="list-row hover:bg-base-300">
+        <Heading fontweight="semibold" fontstyle="sans" class="opacity-70 mb-1">{item}</Heading> 
+      </li>
+    ))
+  }
+</ul>

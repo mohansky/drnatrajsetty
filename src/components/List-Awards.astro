@@ -1,0 +1,32 @@
+---
+import Heading from './Heading.astro';
+import Paragraph from './Paragraph.astro';
+
+interface Award {
+  name: string;
+  year: number;
+  from: string;
+}
+
+interface Props {
+  awards: Award[];
+}
+
+const { awards } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    awards.map(({ name, year, from }) => (
+      <li class="list-row  hover:bg-base-300">
+        <div class="list-col-grow">
+          <span class="flex items-center gap-3">
+            <Heading fontweight="semibold" fontstyle="sans" class="opacity-70 mb-1"> {name}</Heading> 
+            <small class="opacity-30"> {year} </small>
+          </span>
+          <Paragraph>{from}</Paragraph>
+        </div>
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,61 @@
+---
+import { Icon } from "astro-icon/components";
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+import Paragraph from "./Paragraph.astro";
+
+interface ServiceList {
+  icon: string;
+  name: string;
+  description: string;
+}
+
+interface Props {
+  serviceTitle: string;
+  serviceSubtitle: string;
+  servicesList: ServiceList[];
+}
+
+const { serviceTitle, serviceSubtitle, servicesList } = Astro.props;
+---
+
+<section id="services" class="bg-base-200">
+  <Container width="marginx" animate={true} class="py-20">
+    <Heading size="xl" fontweight="bold" fontstyle="sans" class="text-center"
+      >{serviceTitle}</Heading
+    >
+    <Heading
+      size="md"
+      fontweight="medium"
+      fontstyle="sans"
+      class="text-center mb-10"
+    >
+      {serviceSubtitle}
+    </Heading>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        servicesList.map((item) => (
+          <div class="group card  border border-primary rounded-lg shadow-sm overflow-hidden hover:border-error hover:bg-base-300">
+            <div class="card-body">
+              <div class="flex items-center gap-4">
+                <Icon
+                  name={item.icon}
+                  class="w-14 h-14 text-primary group-hover:text-error group-hover:scale-125"
+                />
+                <Heading
+                  size="md"
+                  fontweight="semibold"
+                  fontstyle="sans"
+                  class="mb-1"
+                >
+                  {item.name}
+                </Heading>
+              </div>
+              <Paragraph>{item.description}</Paragraph>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>

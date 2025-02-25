@@ -1,0 +1,113 @@
+---
+import Heading from "./Heading.astro";
+
+interface Item {
+  title: string;
+  authors: string[];
+  journal: string;
+  year: number;
+  volume?: number;
+  issue?: number;
+  pages?: string;
+  doi?: string;
+  link?: string;
+  id: number;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    items.map(
+      ({
+        id,
+        title,
+        authors,
+        journal,
+        year,
+        volume,
+        issue,
+        pages,
+        doi,
+        link,
+      }) => (
+        <li class="list-row hover:bg-base-200">
+          <div class="text-4xl font-thin opacity-30 tabular-nums">
+            {id}
+          </div>
+          <div class="list-col-grow">
+            <Heading size="md" fontweight="semibold" class="opacity-70 text-balance tracking-wider">
+              {title}
+            </Heading>
+            <Heading size="xs" fontweight="medium" class="mb-2">
+              {journal}
+            </Heading>
+            <Heading size="md" fontweight="normal" class="mb-1 text-balance">
+              {" "}
+              <strong>Authors: </strong>{" "}
+              {authors.map((author) => author).join(", ")}
+            </Heading>{" "}
+            <Heading size="xs" fontweight="normal" class="mb-1 text-balance">
+              <strong>Year: </strong> {year}
+            </Heading>
+            <span class="flex flex-col md:flex-row gap-2">
+              {volume && (
+                <Heading
+                  size="xs"
+                  fontweight="normal"
+                  class="mb-1 text-balance"
+                >
+                  <strong> Volume: </strong>
+                  {volume}
+                </Heading>
+              )}
+              {issue && (
+                <Heading
+                  size="xs"
+                  fontweight="normal"
+                  class="mb-1 text-balance"
+                >
+                  <strong> Issue: </strong>
+                  {issue}
+                </Heading>
+              )}
+              {pages && (
+                <Heading
+                  size="xs"
+                  fontweight="normal"
+                  class="mb-1 text-balance"
+                >
+                  <strong> Pages: </strong>
+                  {pages}
+                </Heading>
+              )}
+            </span>
+            <Heading size="xs" fontweight="normal" class="mb-1 text-balance">
+              <strong>DOI: </strong>{" "}
+              <a
+                href={`"https://doi.org/"${doi}`}
+                class="link link-hover"
+                target="_blank"
+              >
+                {doi}
+              </a>
+            </Heading>
+            {link && (
+              <Heading size="xs" fontweight="normal" class="mb-1 text-balance">
+                <strong>Link: </strong>{" "}
+                <a href={link} class="link link-hover" target="_blank">
+                  {link}
+                </a>
+              </Heading>
+            )}
+          </div>
+        </li>
+      )
+    )
+  }
+</ul>

@@ -1,0 +1,33 @@
+---
+import type { Education } from "@/types";
+import Heading from "./Heading.astro";
+
+interface Props {
+  educationHistory: Education[];
+}
+
+const { educationHistory } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    educationHistory.map(({ degree, institution, university, duration }) => (
+      <li class="flex flex-col md:flex-row list-row justify-between hover:bg-base-300">
+        <Heading fontweight="semibold" fontstyle="sans" class="opacity-70 ">
+          {degree}
+        </Heading>
+        <div class="text-center">
+          <Heading
+            fontweight="normal"
+            fontstyle="sans"
+            class="mb-1 text-balance"
+          >
+            {university}
+          </Heading>
+          <div class="text-xs font-thin opacity-60">{institution}</div>
+        </div>
+        <div>{duration}</div>
+      </li>
+    ))
+  }
+</ul>

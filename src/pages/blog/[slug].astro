@@ -1,0 +1,61 @@
+---
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import HeroPage from "@/components/Hero-Page.astro"; 
+import Paragraph from "@/components/Paragraph.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection, getEntry, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const publishedBlogPosts = await getCollection(
+    "blogCollection",
+    ({ data }) => {
+      return data.draft !== true;
+    }
+  );
+  return publishedBlogPosts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const entry = await getEntry("blogCollection", post.id);
+if (!entry) {
+  throw new Error("Could not find blog post with id: " + post.id);
+}
+const { Content } = await render(entry);
+---
+
+<Layout>
+  <HeroPage pageTitle={post.data.title} pageImage={post.data.cover} />
+  <Container width="marginxy" animate={true}>
+    <div class="grid grid-cols-2 gap-8 mb-10">
+      <Image
+      src={post.data.cover}
+      alt={post.data.coverAlt}
+      class="rounded-md"
+      />
+      <div>
+        <Heading size="xl" fontweight="black" fontstyle="sans" class="mb-10"
+          >{post.data.title}</Heading
+        >
+        <p>{post.data.coverAlt}</p>
+      </div>
+    </div>
+
+    <Content
+      components={{
+        h1: Heading,
+        h2: Heading,
+        h3: Heading,
+        h4: Heading,
+        h5: Heading,
+        h6: Heading,
+        p: Paragraph,
+      }}
+    />
+  </Container>
+</Layout>

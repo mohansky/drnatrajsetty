@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import drNatrajSetty from "@/assets/images/Dr-Natraj-Setty.jpg";
+import cardiac from "@/assets/images/clinic.jpg";
+import Heading from "./Heading.astro";
+---
+
+<div class="relative hero bg-base-200 min-h-screen dark:bg-red-50">
+  <Image
+    src={cardiac}
+    class="absolute top-0 right-0 w-screen h-screen object-cover z-0 blur-xs"
+    alt="Dr. Natraj Setty"
+    width="1920"
+    height="1080"
+    loading="eager"
+  />
+  <div class="hero-content flex-col lg:flex-row-reverse gap-20 z-10">
+    <Image
+      src={drNatrajSetty}
+      class="hidden lg:block lg:max-w-xs rounded-lg shadow-2xl"
+      alt="Dr. Natraj Setty"
+      width="1920"
+      height="1080"
+      loading="eager"
+    />
+
+    <div>
+      <Heading
+        as="h1"
+        size="xxxxl"
+        fontweight="black"
+        class="text-gray-800 dark:text-gray-800 capitalize tracking-widest drop-shadow-xl"
+        >Your Heart is our priority</Heading
+      >
+      <p
+        class="font-semibold py-6 text-gray-800 dark:text-gray-800 capitalize tracking-widest drop-shadow-xl"
+      >
+        Expert cardiac care with personalized approach. <br />
+        Dr. Natraj Setty brings 20+ years of experience in cardiovascular medicine.
+      </p>
+      <a href="/#contact">
+        <button class="btn btn-error btn-lg rounded-full mr-3"
+          >Book Appointment</button
+        >
+      </a>
+      <a href="/about">
+        <button class="btn btn-soft btn-error btn-lg rounded-full"
+          >Learn more</button
+        >
+      </a>
+    </div>
+  </div>
+</div>

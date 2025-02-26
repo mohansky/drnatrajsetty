@@ -1,0 +1,49 @@
+---
+import { Image } from "astro:assets"; 
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  image: ImageMetadata;
+  name: string;
+  description: string;
+  aboutList: string[];
+}
+
+const { name, description, aboutList, image } = Astro.props;
+---
+
+<div class="hero min-h-screen">
+  <div class="hero-content flex-col lg:flex-row">
+    <Image
+      src={image}
+      class="max-w-96 max-h-96 rounded-lg shadow-2xl"
+      alt={name}
+      width="1080"
+      height="1080"
+      loading="lazy"
+    />
+
+    <div>
+      <h1 class="text-5xl font-bold">{name}</h1>
+      <p class="py-6">
+        {description}
+      </p>
+      <ul class="list-inside space-y-5">
+        {
+          aboutList.map((item) => (
+            <li>
+              <p class="group flex gap-2 font-medium">
+                <Icon
+                  name="line-md:circle-to-confirm-circle-twotone-transition"
+                  class="w-6 h-6 text-primary group-hover:text-error group-hover:scale-125"
+                />
+                {item}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>

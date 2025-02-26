@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+import Paragraph from "./Paragraph.astro";
+import Heading from "./Heading.astro";
+
+interface Stat {
+  title: string;
+  initial: number;
+  target: number;
+}
+
+interface Props {
+  stats: Stat[];
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="flex flex-col md:flex-row justify-around">
+  {
+    stats.map(({ target, initial, title }) => (
+      <div class="p-10 md:p-20">
+        <span class="flex justify-center items-center gap-2">
+          <Heading
+            size="xxxl"
+            fontweight="semibold"
+            fontstyle="sans"
+            class="counter text-primary"
+            data-target={target}
+          >
+            {initial}
+          </Heading>
+          <Icon name="line-md:plus" class="w-6 h-6 text-primary" />
+        </span>
+        <Paragraph class="text-center">{title}</Paragraph>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  // Function to animate counting up
+  function animateCounters() {
+    const counters = document.querySelectorAll(".counter");
+
+    counters.forEach((counter) => {
+      const targetAttr = counter.getAttribute("data-target");
+      const isDecimalAttr = counter.getAttribute("data-decimal");
+
+      // Handle potential null values with safe defaults
+      const target = targetAttr ? parseFloat(targetAttr) : 0;
+      const isDecimal = isDecimalAttr === "true";
+
+      const duration = 2000; // animation duration in milliseconds
+      const frameRate = 30; // frames per second
+      const frames = (duration / 1000) * frameRate;
+      const increment = target / frames;
+      let currentCount = 0;
+
+      const updateCounter = () => {
+        currentCount += increment;
+
+        if (currentCount < target) {
+          if (isDecimal) {
+            counter.textContent = currentCount.toFixed(1);
+          } else {
+            counter.textContent = Math.floor(currentCount).toString();
+          }
+          requestAnimationFrame(updateCounter);
+        } else {
+          if (isDecimal) {
+            counter.textContent = target.toFixed(1);
+          } else {
+            counter.textContent = target.toString();
+          }
+        }
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              updateCounter();
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      observer.observe(counter);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", animateCounters);
+</script>

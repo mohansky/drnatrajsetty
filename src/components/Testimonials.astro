@@ -1,0 +1,115 @@
+---
+import { Icon } from "astro-icon/components";
+import Container from "./Container.astro";
+import Heading from "./Heading.astro";
+
+interface Testimonials {
+  name: string;
+  icon: string;
+  treatment: string;
+  comments: string;
+}
+
+interface Props {
+  testimonialsTitle: string;
+  testimonials: Testimonials[];
+}
+
+const { testimonialsTitle, testimonials } = Astro.props;
+---
+
+<div class="bg-base-100">
+  <Container width="marginxy" animate={true}>
+    <h2 class="text-center text-2xl font-bold mb-5">{testimonialsTitle}</h2>
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        {
+          testimonials.map(({ name, icon, treatment, comments }) => (
+            <div class="group swiper-slide card bg-base-100 shadow-sm border-1 border-primary hover:border-error hover:bg-base-300">
+              <div class="card-body">
+                <span class="flex gap-2">
+                  <Icon
+                    name={icon}
+                    class="w-8 h-8 text-primary bg-warning p-1 rounded-full group-hover:text-error group-hover:scale-125"
+                  />
+                  <Heading
+                    size="md"
+                    fontweight="medium"
+                    fontstyle="sans"
+                    class="card-title"
+                  >
+                    {name}
+                  </Heading>
+                </span>
+                <Heading
+                  size="xxs"
+                  fontweight="normal"
+                  fontstyle="sans"
+                  class="text-gray-800 dark:text-gray-400"
+                >
+                  {treatment}
+                </Heading>
+                <p class="text-justify line-clamp-4">{comments}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </Container>
+</div>
+
+<style>
+  @import "swiper/css";
+  @import "swiper/css/navigation";
+  @import "swiper/css/pagination";
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    padding: 1px 1px;
+  }
+</style>
+
+<script>
+  // Import Swiper JS
+  import Swiper from "swiper";
+  import { Navigation, Pagination } from "swiper/modules";
+
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  // Initialize Swiper
+  const swiper = new Swiper(".mySwiper", {
+    modules: [Navigation, Pagination],
+    slidesPerView: 1,
+    spaceBetween: 10,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      // when window width is >= 1080px
+      1080: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
+
+    direction: "horizontal",
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>

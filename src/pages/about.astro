@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import cardiac from "@/assets/images/cardiac.jpg";
+import HeroPage from "@/components/Hero-Page.astro";
+import Heading from "@/components/Heading.astro"; 
+import Paragraph from "@/components/Paragraph.astro"; 
+import Container from "@/components/Container.astro";
+import ListSimple from "@/components/List-Simple.astro";
+import ListPublications from "@/components/List-Publications.astro";
+import ListAwards from "@/components/List-Awards.astro";
+import { getCollection } from "astro:content";
+import ListResearch from "@/components/List-Research.astro";
+import ListEducation from "@/components/List-Education.astro";
+const aboutData = await getCollection("aboutCollection");
+const abouts = aboutData.map((about) => about.data);
+const aboutList = abouts[0];
+---
+
+<Layout>
+  <HeroPage pageTitle="About Us" pageImage={cardiac} />
+  <Container width="marginxy" animate={false}>
+    <div class="grid md:grid-cols-4 gap-8 mb-20">
+      <Image
+        src={aboutList.doctorPic}
+        class="max-w-72 rounded-lg mx-auto"
+        alt={aboutList.doctorName}
+        loading="eager"
+      />
+      <div class="md:col-span-3 ml-5">
+        <Heading size="lg" fontweight="medium" fontstyle="serif">
+          {aboutList.doctorName}
+        </Heading>
+        <Heading size="xxs" fontweight="light" class="mb-5"
+          >MBBS, MD, DM Cardiology, FACC, FSCAI , FRCP, FICC, FESC</Heading
+        >
+
+        {
+          aboutList.aboutDoctor.map((aboutDoctor) => (
+            <Paragraph class="w-full text-md text-justify font-sans indent-3 mb-3">
+              {aboutDoctor}
+            </Paragraph>
+          ))
+        }
+      </div>
+    </div>
+
+    <div role="tablist" class="tabs tabs-border">
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Education"
+        checked="checked"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListEducation educationHistory={aboutList.educationHistory} />
+      </div>
+
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Affiliations and Memberships"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListSimple items={aboutList.affiliationsMemberships} />
+      </div>
+
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Clinical Expertise"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListSimple items={aboutList.clinicalExpertise} />
+      </div>
+
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Awards"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListAwards awards={aboutList.awardsList} />
+      </div>
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Publications"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListPublications items={aboutList.publications} />
+      </div>
+      <input
+        type="radio"
+        name="my_tabs_2"
+        role="tab"
+        class="tab"
+        aria-label="Research and Projects"
+      />
+      <div class="tab-content border-base-300 bg-base-100 p-10">
+        <ListResearch items={aboutList.research} />
+      </div>
+    </div>
+  </Container>
+</Layout>

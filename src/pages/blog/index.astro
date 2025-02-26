@@ -1,0 +1,71 @@
+---
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import HeroPage from "@/components/Hero-Page.astro";
+import Paragraph from "@/components/Paragraph.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+// const publishedBlogPosts = await getCollection("blogCollection", ({ data }) => {
+//   return data.draft !== true;
+// });
+
+const publishedBlogPosts = await getCollection("blogCollection", ({ data }) => {
+  return data.draft !== true;
+}).then(posts => posts.sort((a, b) => {
+  // Ensure we're working with valid date values
+  const dateA = a.data.date instanceof Date ? a.data.date : new Date(a.data.date || 0);
+  const dateB = b.data.date instanceof Date ? b.data.date : new Date(b.data.date || 0);
+  
+  // Sort in descending order (newest first)
+  return dateB.getTime() - dateA.getTime();
+}));
+
+const dateOptions: object = {
+	year: "2-digit",
+	month: "long",
+	day: "numeric",
+};
+---
+
+<Layout>
+  <HeroPage pageTitle="Blog" pageImage={publishedBlogPosts[0].data.cover} />
+  <Container width="marginxy" animate={true}>
+    <Heading size="xxl" fontweight="black" fontstyle="sans" class="text-center mb-10"
+      >Blog</Heading
+    > 
+    <div class="grid place-content-center md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {
+        publishedBlogPosts.map((post) => (
+          <div class="card bg-base-100 max-w-96 shadow-sm">
+            <figure>
+              <Image
+                src={post.data.cover}
+                alt={post.data.coverAlt}
+                class="rounded-t-sm"
+              />
+            </figure>
+            <div class="card-body">
+              <Heading
+                size="md"
+                fontweight="semibold"
+                fontstyle="sans"
+                class="card-title text-balance"
+              >
+                {post.data.title}
+              </Heading>
+              <div class="mb-5">{post.data.date?.toLocaleDateString("en-UK", dateOptions)}</div>
+              <Paragraph class="line-clamp-3">{post.data.excerpt}</Paragraph>
+              <div class="card-actions justify-end">
+                <button class="btn btn-primary">
+                  <a href={"/blog/" + post.id}>Read More</a>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>

@@ -1,0 +1,88 @@
+---
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import HeroPage from "@/components/Hero-Page.astro";
+import Paragraph from "@/components/Paragraph.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import { getCollection, getEntry, render } from "astro:content";
+
+const servicesCollection = await getCollection(
+  "servicesCollection",
+  ({ data }) => {
+    return data.draft !== true;
+  }
+);
+const sortedServices = servicesCollection.sort(
+  (a, b) => a.data.weight - b.data.weight
+);
+
+export async function getStaticPaths() {
+  const publishedServices = await getCollection(
+    "servicesCollection",
+    ({ data }) => {
+      return data.draft !== true;
+    }
+  );
+  return publishedServices.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+
+const entry = await getEntry("servicesCollection", service.id);
+if (!entry) {
+  throw new Error("Could not find service with id: " + service.id);
+}
+const { Content } = await render(entry);
+---
+
+<Layout>
+  <HeroPage pageTitle={service.data.name} pageImage={service.data.image} />
+  <Container width="marginxy">
+    <div class="grid lg:grid-cols-4 gap-10">
+      <Image
+        src={service.data.image}
+        alt={service.data.name}
+        class="w-full rounded-md"
+      />
+      <diV class="col-span-2">
+        <Heading size="xxl" fontweight="black" fontstyle="sans" class="mb-5"
+          >{service.data.name}</Heading
+        >
+        <p>{service.data.description}</p>
+      </diV>
+      <ul class="menu bg-base-200 rounded-box w-56">
+        {
+          sortedServices.map((service) => (
+            <li class="group">
+              <a href={"/experties/" + service.id}>
+                {/* <Icon
+                  name={service.data.icon}
+                  class="w-5 h-5 text-primary group-hover:text-accent group-hover:scale-110"
+                /> */}
+
+                <p>{service.data.name}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <Content
+      components={{
+        h1: Heading,
+        h2: Heading,
+        h3: Heading,
+        h4: Heading,
+        h5: Heading,
+        h6: Heading,
+        p: Paragraph,
+      }}
+    />
+  </Container>
+</Layout>

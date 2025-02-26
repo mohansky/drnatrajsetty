@@ -1,0 +1,51 @@
+---
+import Heading from "./Heading.astro";
+import Paragraph from "./Paragraph.astro";
+
+interface Item {
+  title: string;
+  type?: string;
+  description?: string;
+  status?: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    items.map(({ title, description, type, status }) => (
+      <li class="list-row hover:bg-base-300">
+        <div class="list-col-grow">
+          <Heading fontweight="semibold" fontstyle="sans" class="opacity-70 mb-1">
+            {title}
+          </Heading>
+          {type && (
+            <Heading
+              fontweight="normal"
+              fontstyle="sans"
+              class="opacity-70 mb-1 text-balance"
+            >
+             <strong>Type: </strong>{type}
+            </Heading>
+          )}
+          {status && (
+            <Heading
+              fontweight="normal"
+              fontstyle="sans"
+              class="opacity-70 mb-1 text-balance"
+            >
+              <strong>Status: </strong>{status}
+            </Heading>
+          )}
+
+          <Paragraph>{description}</Paragraph>
+        </div>
+      </li>
+    ))
+  }
+</ul>

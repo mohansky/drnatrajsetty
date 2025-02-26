@@ -1,0 +1,155 @@
+---
+import "../styles/global.css";
+import Footer from "@/components/Footer.astro";
+import Navbar from "@/components/Navbar.astro";
+import Background from "@/components/Background.astro";
+
+import { getCollection } from "astro:content";
+
+const siteData = await getCollection("siteCollection");
+const siteInfo = siteData.map((site) => site.data);
+const site = siteInfo[0];
+---
+
+<!doctype html>
+<html lang="en" data-theme="winter">
+  <head>
+    <script is:inline>
+      if (localStorage.getItem("theme") === null) {
+        document.documentElement.setAttribute("data-theme", "winter");
+      } else
+        document.documentElement.setAttribute(
+          "data-theme",
+          localStorage.getItem("theme")
+        );
+    </script>
+    <script>
+      import { themeChange } from "theme-change";
+      themeChange();
+    </script>
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        name: "Dr. Natraj Setty",
+        hasOccupation: {
+          "@type": "Occupation",
+          name: "Doctor",
+          telephone: "+919741418281",
+          url: "https://www.drnatrajsetty.com",
+        },
+      })}
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.6/daisyui.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
+
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content={site.title} />
+    <meta property="og:description" content={site.description} />
+    <meta
+      property="og:image"
+      content={`${site.basepath}/images/open-graph-image.jpg`}
+    />
+    <meta property="og:url" content={`${site.basepath}/`}  />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={site.title} />
+    <meta name="twitter:description" content={site.description} />
+    <meta
+      name="twitter:image"
+      content={`${site.basepath}/images/twitter-image.jpg"`}
+    />
+
+    <!-- Canonical URL (prevents duplicate content issues) -->
+    <link rel="canonical" href={site.basepath} />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content={site.keywords.join(",")} />
+    <!-- Less important now but still used -->
+    <meta name="author" content={site.author.name} />
+  </head>
+  <body>
+    <Navbar links={site.menulinks} />
+    <Background />
+    <slot />
+    <Footer
+      links={site.menulinks}
+      contact={site.contact}
+      socials={site.socials}
+      footerAbout={site.footerAbout}
+      footerDescription={site.footerDescription}
+      footerMenuTitle={site.footerMenuTitle}
+      contactTitle={site.contactTitle}
+      socialTitle={site.socialTitle}
+      copyright={site.copyright}
+      timmingsTitle={site.timmingsTitle}
+      timmings={site.timmings}
+    />
+  </body>
+</html>
+
+<style is:global>
+  /* eb-garamond-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "EB Garamond";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/eb-garamond-v30-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* montserrat-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/montserrat-v29-latin-regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "EB Garamond", serif;
+  }
+
+  p {
+    font-family: "Montserrat", sans-serif;
+  }
+</style>

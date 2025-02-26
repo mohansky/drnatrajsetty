@@ -1,0 +1,230 @@
+about:
+  doctorName: Dr. H.S Natraj Setty
+  doctorPic: ./Dr-Natraj-Setty.jpg
+  aboutDoctor:
+    - In the quiet corridors of woes of pain and healing, doctors stand as guardians of life, connecting every dot of hope to end human suffering. Their hands, skilled and compassionate, mend broken bodies and inspire and touch every tired soul they meet. Each heartbeat restored results from their dedication, a silent sacrifice to their part of fun and well-being. These unsung heroes mold the future of every life they touch, along with their nature of compassion and resilience.
+    - Dr. H.S. Natraj Setty is a globally renowned cardiologist celebrated for performing interventions on over 1,000 people living with HIV, the highest in the world. His groundbreaking research has earned him awards like the 2023 Karnataka State Award and international recognition at Washington DC, Tokyo, and London forums. A pioneer in rural healthcare, he has organized over 10,000 free cardiological camps, benefiting more than 700,000 underprivileged patients. Through his Varalaxman Charitable Foundation, Dr. Natraj supports orphanages, nursing homes, and clinics. With 90 research publications and a lifelong dedication to advancing HIV treatment, he illustrates compassion and excellence in medicine.
+  awardsTitle: Awards
+  awardsList:
+    - name: NadaPrabhu Kempegowda Award
+      year: 2017
+      from: Bruhat Bengaluru Mahanagara Palike (BBMP) and the Government of Karnataka 
+
+    - name: Chanakya Ratna Rastriya Award
+      year: 2016
+      from: Chaythanya International Arts Academy Trust, Bangalore 
+
+    - name: Kannada Siri Award
+      year: 2015
+      from: Jayanagara Rajyotsava Kannada Sangha, Bangalore 
+
+    - name: Yogi Narayana Award
+      year: 2015
+      from: Karnataka Rajya Balija Trust, Bangalore 
+
+    - name: SAGAR Award
+      year: 2018
+      from: Rangashri Kala Samsthe, Bangalore 
+
+    - name: Kannada Rajyotsava Award
+      year: 2023
+      from: Kannada Rajyotsava event organized by Rotaract District-3191-3192 
+
+    - name: Achievers Award
+      year: 2023
+      from: Devraj Seva Prathistana at their 10th-anniversary event 
+
+    - name: Health and Family Welfare Achievement Award
+      year: 2023
+      from: Karnataka's Health and Family Welfare Department, NACO, and Karnataka State AIDS Prevention Society on World AIDS Day for Contributions to AIDS prevention
+
+    - name: Pioneer Research Award
+      year: 2024
+      from: National Medical Forum Medical Research Summit & Blackbuck Awards
+
+    - name: Kannadambe Ratna Title
+      year: 2024
+      from: Kannadambe Rakshana Vedike, Bangalore
+
+  professionalProfile:
+    - Well versed in invasive cardiac procedures – Coronary Angiography, Angioplasty and Stenting, Endovascular Interventions for PVD
+    - Independently performed more than 8000 coronary Angioplasty and 16000 coronary angiograms.
+    - Performed more than 5000 Non – Coronary Interventions including valvular, Device implantations & Endovascular interventions.
+    - Structural heart disease (ASD, VSD, PDA).
+
+  affiliationsMemberships:
+    - Fellow of Indian College of Cardiology (FICC)
+    - Life member – Indian College of Cardiology (ICC)
+    - Member of Cardiological Society of India (CSI)
+    - Member of Research society for the study of diabetes in India (RSSDI
+    - Associate fellow of European Society of Cardiology (AFESC)
+    - Faculty at National Endovascular workshop at Ahmadabad, India (2014, 2015, 2016, 2017, 2018)
+    - International Associate Member American College of cardiology
+    - Fellow of American College of Cardiology (FACC) January 16th 2016
+    - Fellow of Society for Cardiovascular Angiography and Interventions (FSCAI) 2018
+    - International faculty at Tokyo Percutaneous Cardiovascular Intervention Conference (TOPIC) 2018
+    - Fellow of Royal College of physician (FRCP) (Glasgow) April 26th 2019
+    - Fellow of Royal College of physician (FRCP) (Edinburg) November 20th 2019
+    - Fellow of Royal College of physician (FRCP) (Ireland) June 20th 2021
+    - Fellow of Royal College of physician (FRCP) (London) October 10th 2023
+
+  clinicalExpertise:
+    - Valvuloplasty
+    - Coronary Angioplasty
+    - Endovascular Management of PVD
+    - Device closure of Structural Heart Disease (ASD, VSD, PDA, Gerbode’s defect)
+
+  educationHistory:
+    - degree: DM (Cardiology)
+      institution: Sri Jayadeva Institute of Cardiovascular sciences & research, Bannerghatta Road, Bangalore – 69
+      university: Rajiv Gandhi University of Health sciences (RGUHS)
+      duration: August 2011 - July 2014
+    - degree: MD (General Medicine)
+      institution: Karnataka Medical College, Hubli, Karnataka
+      university: Rajiv Gandhi University of Health sciences (RGUHS)
+      duration: August 1999 – March 2003
+    - degree: MBBS
+      institution: Sri Siddhartha Medical College, Tumkur, Karnataka
+      university: Bangalore University
+      duration: March 1989 – December 1995
+
+  publications:
+    - title: "Massive Pericardial Effusion and Cardiac Tamponade Due to Cholesterol Pericarditis in a Case of Subclinical Hypothyroidism: A Rare Event"
+      authors: ["Natraj Setty Huliyur Durga Srinivas Setty", "Kenchanahalli Siddegowda Sadananda", "Manjunath Cholenahalli Nanjappa", "Soumya Patra", "Harsha Basappa", "and Santhosh Krishnappa"]
+      journal: "Journals of the American College of Cardiology"
+      year: 2014
+      volume: 63
+      issue: 14
+      pages: "1451-1451"
+      doi: "10.1016/j.jacc.2013.10.093"
+      link: "https://www.jacc.org/doi/10.1016/j.jacc.2013.10.093"
+      id: 1
+
+    - title: "Percutaneous device closure of hypertensive patent ductusarteriosus with pulmonary hypertension: Longterm results"
+      authors: [ "Ishwarappa Balekundri Vijayalakshmi", "Natraj Setty", "Chitra Narasimhan", "Vivek Singla", "Cholenahalli Nanjappa Manjunath" ]
+      journal: "Journal of Interventional cardiology"
+      year: 2014
+      volume: 27
+      issue: 6
+      pages: "563-9"
+      doi: "10.1111/joic.12156"
+      link: "https://pubmed.ncbi.nlm.nih.gov/25490863/"
+      id: 2
+
+    - title: "Amplatzer duct occluder II for closure of congenital Gerbode defects"
+      authors: ["I B Vijayalakshmi", "H S Natraj Setty", "Narasimhan Chitra", "Cholenahally N Manjunath"]
+      journal: "Catheterization and Cardiovascular Interventions"
+      year: 2015
+      doi: "10.1002/ccd.26020" 
+      id: 3
+
+    - title: "Transposition of great arteries with natural partial Senning: A rare case report"
+      authors: [ "H S Nataraj Shetty", "Soumya Patra", "I B Vijayalakshmi", "Chitra Narasimhan", "C N Manjunath" ]
+      journal: "Acute Cardiac Care"
+      year: 2015
+      volume: 17
+      issue: 3
+      pages: "39-40"
+      doi: 10.3109/17482941.2015.1110242 
+      id: 4
+
+    - title: "Assessment of RV function following Percutaneous Transvenous Mitral Commissurotomy (PTMC) for rheumatic mitral stenosis"
+      authors: [ "Huliyurdurga Srinivasa Setty Natraj Setty", "Veeresh Patil Hebbal", "Yeriswamy Mogalahalli Channabasappa", "Santosh Jadhav", "Kandenahalli Shankarappa Ravindranath", "Shivanand S Patil", "Kumar Swamy", "Cholenahalli Nanjappa Manjunath"]
+      journal: "Journal of Cardiovascular Disease Research"
+      year: 2016
+      volume: 7
+      issue: 2
+      pages: "58-63"
+      doi: "10.5530/jcdr.2016.2.1" 
+      id: 5
+
+    - title: "Clinical, angiographic profile and percutaneous endovascular management of Takayasu's arteritis - A single centre experience"
+      authors: [ "H S Natraj Setty", "Murali Rao", "K H Srinivas", "B C Srinivas", "M K Usha", "M Jayaranganath", "Shivanand S Patil", "C N Manjunath" ]
+      journal: "International Journal of Cardiology"
+      year: 2016
+      volume: 220
+      pages: "924-928"
+      doi: "10.1016/j.ijcard.2016.06.194" 
+      id: 6
+
+    - title: "Unusual non progressive idiopathic giant ascending aortic aneurysm - A rarity"
+      authors: [ "Natraj Setty Huliyurdurga Srinivasasetty", "Raghu Thagachagere Ramegowda", "Jayashree Kharge", "Geetha Bachahalli Krishnanayak", "Shivanand S Patil", "Varada Raj", "Nishanth Kandenahalli Ravindranath", "Manjunath Cholenahalli Nanjappa"]
+      journal: "International Journal of Surgery Case Reports"
+      year: 2016
+      volume: 25
+      pages: "203-206"
+      doi: "10.1016/j.ijscr.2016.06.049" 
+      id: 7
+
+    - title: "Clinico-Etiological Profile of Cardiac Tamponade in a Tertiary Care Centre"
+      authors: [ "HS Nataraj Setty", "MC Yeriswamy", "Santhosh Jadav", "Soumya Patra", "Kumar Swamy", "Shivanand S Patil", "KS Ravindranath", "Veeresh Patil and CN Manjunath" ]
+      journal: "Journal of Cardiovascular Medicine and Cardiology"
+      year: 2016
+      volume: 3
+      issue: 1
+      pages: "041-044"
+      doi: "10.17352/2455-2976.000031" 
+      id: 8
+
+    - title: "Use of CT Angiogram in Interventions Involving Coronary Artery Anomalies: A Case Series"
+      authors: [ "Dwarakanath Ramesh", "Huliyurdurga S Setty Natraj Setty", "Veeresh Patil", "Kumar Swamy", "Sunil Kumar", "Guruprasad Guruprasad", "Cholenahalli Nanjappa Manjunath" ]
+      journal: "American journal of case reports"
+      year: 2015
+      doi: "10.12659/AJCR.894107"
+      id: 9
+
+    - title: "Purulent pericarditis with quadruple valve endocarditis"
+      authors: [ "Huliyurdurga S Setty Natrajsetty", "Ishwarappa B Vijayalakshmi", "Chitra Narasimhan", "Cholenahalli N Manjunath" ]
+      journal: "American Journal of Case Reports"
+      year: 2015
+      volume: 16
+      pages: "236-239"
+      doi: "10.12659/AJCR.893072" 
+      link: "https://www.ajcr.org/article/S0002-9343(15)00160-X/fulltext"
+      id: 10
+
+    - title: "Acute Pulmonary Thromboembolism Masquerading as Pneumocystis Ji-roveci Pneumonia in a Newly Detected HIV Positive Patient"
+      authors: [ "Natraj Setty HS*", "Raghu TR", "Jayashree K", "Geetha", "Shivanand S Patil", "Babu Reddy", "Vijaykumar JR", "and Manjunath CN"]
+      journal: "International Journal of Cardiovascular Research"
+      year: 2016
+      volume: 5
+      issue: 6
+      doi: "10.4172/2324-8602.1000291" 
+      id: 11
+
+  research:
+    - title: "HIV and Acute coronary syndrome interventions - original research project"
+      description: "Planning to do 1000 interventions in Retro Viral Positive patients (Dream Project)(Completed 650 Interventions)."
+      status: "In Progress"
+
+    - title: "Percutaneous Transvenous Mitral Commissurotomy (PTMC) In Retroviral Positive Patients With Severe Mitral Stenosis (MS)"
+      description: "Challenges And Dilemmas."
+
+    - title: "Infective Endocarditis Caused By Brucella Melitensis In An Hiv Positive Patient"
+      type: "Case Study"
+
+    - title: "Complex Unprotected Left main Coronary Interventions in Retroviral Positive Patients"
+      description: "To Treat or Not to Treat."
+
+    - title: "Dilemma In Percutaneous Coronary Interventions In Retroviral Positive Patients With Chronic Total Occlusion (CTO)"
+
+    - title: "Cardiac Tamponade In Hiv Positive Patients"
+      description: "Experience In A Tertiary Care Centre."
+
+    - title: "Feasibility And Outcomes Of PCI With Novel Tapered Coronary Stent In People Living With HIV"
+      description: "A Prospective, Single-Center Study With Literature Review."
+
+    - title: "Rotablation in the treatment of high-risk patients with heavily calcified caronary lesions In People Living With HIV"
+
+    - title: "Safety and efficacy of Thrombus Aspiration and utilizing on export Aspiration Catheter in people living with HIV"
+      description: "A nightmare for Interventionalist"
+
+    - title: "Left Main Bifurcation PCI in an adult with double positive (COVID & HIV)"
+      type: "Case Study"
+
+    - title: "Risks of pulmonary embolism, and bleeding after covid-19"
+
+    - title: "Clinical, angiographic profile and percutaneous endovascular management of Takayasu's arteritis"
+      status: "Ongoing project"
+
+    - title: "Acute pulmonary embolism in people living with HIV"

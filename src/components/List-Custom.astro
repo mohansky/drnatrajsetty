@@ -1,0 +1,29 @@
+---
+interface Item {
+    id?: number;
+    title?: string;
+    description: string;
+}
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="list bg-base-100 rounded-box shadow-md">
+  {
+    items.map(({ id, title, description }) => (
+      <li class="list-row hover:bg-base-300">
+        <div class="text-4xl font-thin opacity-30 tabular-nums">{id || ""}</div>
+        <div class="list-col-grow">
+          <div>{title || ""}</div>
+          <div class="text-xs uppercase font-semibold opacity-60">
+            {description}
+          </div>
+        </div>
+      </li>
+    ))
+  }
+</ul>

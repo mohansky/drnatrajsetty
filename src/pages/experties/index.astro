@@ -1,0 +1,74 @@
+---
+import Container from "@/components/Container.astro";
+import Heading from "@/components/Heading.astro";
+import HeroPage from "@/components/Hero-Page.astro";
+import Paragraph from "@/components/Paragraph.astro";
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+import { getCollection } from "astro:content";
+const servicesCollection = await getCollection(
+  "servicesCollection",
+  ({ data }) => {
+    return data.draft !== true;
+  }
+);
+const sortedServices = servicesCollection.sort(
+  (a, b) => a.data.weight - b.data.weight
+);
+---
+
+<Layout>
+  <HeroPage
+    pageTitle="Expertise"
+    pageImage={servicesCollection[0].data.image}
+  />
+  <section id="services">
+    <Container width="marginxy" animate={true}>
+      <Heading
+        size="xxl"
+        fontweight="black"
+        fontstyle="sans"
+        class="text-center mb-10">Expertise</Heading
+      >
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {
+          sortedServices.map((service) => (
+            <div class="card bg-base-100 max-w-96 shadow-sm mx-auto">
+              <figure>
+                <Image
+                  src={service.data.image}
+                  alt={service.data.name}
+                  width="640"
+                  height="480"
+                  class="hover:scale-110 transition-transform "
+                />
+              </figure>
+              <div class="card-body">
+                <span class="flex justify-between items-center gap-3">
+                  <Heading size="md" fontweight="semibold" fontstyle="sans">
+                    {service.data.name} ({service.data.shortName})
+                  </Heading>
+                  {/* <Icon
+                    name={service.data.icon}
+                    class="w-10 h-10 text-primary"
+                  /> */}
+                </span>
+                <Paragraph class="line-clamp-3 mb-3">
+                  {service.data.description}
+                </Paragraph>
+
+                <div class="card-actions justify-end">
+                  <a href={"/experties/" + service.id}>
+                    <button class="btn btn-primary">Learn More</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+</Layout>

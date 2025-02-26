@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon/components";
+import Heading from "./Heading.astro";
+import Paragraph from "./Paragraph.astro";
+import { Image } from "astro:assets";
+import Logo from "@/assets/images/Sapphire-Heart-Care-Clinic-Logo.svg";
+
+interface NavLink {
+  text: string;
+  link: string;
+}
+
+interface ContactLink {
+  href: string;
+  name: string[];
+  icon?: string;
+  text?: string;
+}
+
+interface SocialLink {
+  name: string;
+  link: string;
+  icon?: string;
+  text?: string;
+}
+
+interface Timmings {
+  title: string;
+  details: string;
+}
+
+interface Props {
+  footerAbout: string;
+  footerDescription: string;
+  footerMenuTitle: string;
+  copyright: string;
+  contactTitle: string;
+  socialTitle: string;
+  links: NavLink[];
+  contact: ContactLink[];
+  socials: SocialLink[];
+  timmingsTitle: string;
+  timmings: Timmings[];
+}
+
+const {
+  links,
+  contact,
+  socials,
+  footerAbout,
+  footerDescription,
+  footerMenuTitle,
+  copyright,
+  contactTitle,
+  socialTitle,
+  timmingsTitle,
+  timmings,
+} = Astro.props;
+---
+
+<footer
+  class="footer sm:footer-horizontal bg-base-200 text-base-content rounded py-20"
+>
+  <div
+    class="w-full mx-auto max-w-[98vw] md:max-w-[90vw] lg:max-w-7xl grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
+    <aside>
+      <Image src={Logo} alt="Dr. Natraj Setty" width="250" height="100" title="Dr. Natraj Setty"  />
+      <Paragraph class="w-5/6 text-md text-justify font-sans">
+        {footerDescription}
+      </Paragraph>
+    </aside>
+    <aside>
+      <Heading size="md" fontweight="semibold" fontstyle="sans" class="mb-3">
+        {footerMenuTitle}</Heading
+      >
+      <div class="flex flex-col gap-2">
+        {
+          links.map(({ text, link }) => (
+            <a class="link link-hover" href={link} title={`Go to ${text}`}>
+              <p> {text} </p>
+            </a>
+          ))
+        }
+      </div>
+    </aside>
+    <aside>
+      <Heading size="md" fontweight="semibold" fontstyle="sans" class="mb-3">
+        {contactTitle}</Heading
+      >
+      <ul class="space-y-4">
+        {
+          contact.map(({ icon, href, name }) => (
+            <li class="group flex flex-row gap-2">
+              <Icon
+                name={icon}
+                class="w-5 h-5 group-hover:text-error duration-300 ease-in-out"
+              />
+              <a href={href} class="link link-hover">
+                {name.map((i) => (
+                  <p class="flex-col">{i}</p>
+                ))}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+
+    <aside>
+      <div class="mb-5">
+        <Heading size="md" fontweight="semibold" fontstyle="sans" class="mb-3"
+          >{timmingsTitle}</Heading
+        >
+        <ul class="space-y-4">
+          {
+            timmings.map((timming) => (
+              <li class="flex flex-row gap-2">
+                <p>
+                  <b> {timming.title}:</b> {timming.details}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <Heading size="md" fontweight="semibold" fontstyle="sans" class="mb-3"
+          >{socialTitle}</Heading
+        >
+        <div class="flex flex-row gap-4">
+          {
+            socials.map((social) => (
+              <a href={social.link}>
+                <Icon name={social.icon} class="w-10 h-10 hover:text-error" />
+                <span class="sr-only">{social.name}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </aside>
+  </div>
+</footer>
+
+<footer
+  class="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4"
+>
+  <aside>
+    <p>
+      {copyright}
+      {new Date().getFullYear()}
+    </p>
+  </aside>
+</footer>
